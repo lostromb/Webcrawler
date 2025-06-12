@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9BFCF106-4708-49ED-993B-CDD3AB02F454}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>WebCrawler</RootNamespace>
+    <AssemblyName>WebCrawler</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
+      <HintPath>packages\BouncyCastle.Cryptography.2.3.0\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
+    </Reference>
+    <Reference Include="Durandal, Version=22.0.4633.0, Culture=neutral, PublicKeyToken=2f7fb9b49ffdfe20, processorArchitecture=MSIL">
+      <HintPath>packages\Durandal.AI.22.0.4634\lib\portable-net45+win8+wpa81\Durandal.dll</HintPath>
+    </Reference>
+    <Reference Include="Durandal.Extensions.NativeAudio, Version=22.0.4633.0, Culture=neutral, PublicKeyToken=2f7fb9b49ffdfe20, processorArchitecture=MSIL">
+      <HintPath>packages\Durandal.AI.Extensions.NativeAudio.22.0.4634\lib\netstandard2.0\Durandal.Extensions.NativeAudio.dll</HintPath>
+    </Reference>
+    <Reference Include="Durandal.NetFramework, Version=22.0.4633.0, Culture=neutral, PublicKeyToken=2f7fb9b49ffdfe20, processorArchitecture=MSIL">
+      <HintPath>packages\Durandal.AI.NonPortable.22.0.4634\lib\net48\Durandal.NetFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>D:\corextcache\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>D:\corextcache\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>D:\corextcache\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>D:\corextcache\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>D:\corextcache\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>D:\corextcache\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>D:\corextcache\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Vanara.Core, Version=3.4.16.0, Culture=neutral, PublicKeyToken=c37e4080322237fa, processorArchitecture=MSIL">
+      <HintPath>packages\Vanara.Core.3.4.16\lib\net48\Vanara.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Vanara.PInvoke.Kernel32, Version=3.4.16.0, Culture=neutral, PublicKeyToken=c37e4080322237fa, processorArchitecture=MSIL">
+      <HintPath>packages\Vanara.PInvoke.Kernel32.3.4.16\lib\net48\Vanara.PInvoke.Kernel32.dll</HintPath>
+    </Reference>
+    <Reference Include="Vanara.PInvoke.Pdh, Version=3.4.16.0, Culture=neutral, PublicKeyToken=c37e4080322237fa, processorArchitecture=MSIL">
+      <HintPath>packages\Vanara.PInvoke.Pdh.3.4.16\lib\net48\Vanara.PInvoke.Pdh.dll</HintPath>
+    </Reference>
+    <Reference Include="Vanara.PInvoke.Shared, Version=3.4.16.0, Culture=neutral, PublicKeyToken=c37e4080322237fa, processorArchitecture=MSIL">
+      <HintPath>packages\Vanara.PInvoke.Shared.3.4.16\lib\net48\Vanara.PInvoke.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="WebDriver, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Selenium.WebDriver.4.19.0\lib\netstandard2.0\WebDriver.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="InterProcess\AudioStatistics.cs" />
+    <Compile Include="InterProcess\CommandLine.cs" />
+    <Compile Include="InterProcess\AudioProcessor.cs" />
+    <Compile Include="LongComicStripProcessor.cs" />
+    <Compile Include="Mangadex\Api\AggregateQueryParameters.cs" />
+    <Compile Include="Mangadex\Api\ChapterImageQueryResponse.cs" />
+    <Compile Include="Mangadex\Api\ChapterQueryResponse.cs" />
+    <Compile Include="Mangadex\Api\EntityResponse.cs" />
+    <Compile Include="Mangadex\Api\FeedQueryParameters.cs" />
+    <Compile Include="Mangadex\Converters\EntityTypeConverter.cs" />
+    <Compile Include="Mangadex\Converters\LanguageCodeConverter.cs" />
+    <Compile Include="Mangadex\Converters\MangadexEntityConverter.cs" />
+    <Compile Include="Mangadex\Api\MangadexApi.cs" />
+    <Compile Include="Mangadex\Api\AggregateQueryResponse.cs" />
+    <Compile Include="Mangadex\Schemas\ChapterAttributes.cs" />
+    <Compile Include="Mangadex\Schemas\ChapterEntity.cs" />
+    <Compile Include="Mangadex\Api\CollectionResponse.cs" />
+    <Compile Include="Mangadex\Api\FeedQueryResponse.cs" />
+    <Compile Include="Mangadex\Schemas\ChapterImageInfo.cs" />
+    <Compile Include="Mangadex\Schemas\MangaChapter.cs" />
+    <Compile Include="Mangadex\Api\MangadexResponse.cs" />
+    <Compile Include="Mangadex\Schemas\MangaVolume.cs" />
+    <Compile Include="Mangadex\Schemas\UnknownEntity.cs" />
+    <Compile Include="Mangadex\Schemas\MangadexEntity.cs" />
+    <Compile Include="Mangadex\Schemas\MangadexEntityType.cs" />
+    <Compile Include="Mangadex\Schemas\MangaEntity.cs" />
+    <Compile Include="Mangadex\Schemas\ScanlationGroupAttributes.cs" />
+    <Compile Include="Mangadex\Schemas\ScanlationGroupEntity.cs" />
+    <Compile Include="Mangadex\Schemas\UserAttributes.cs" />
+    <Compile Include="Mangadex\Schemas\UserEntity.cs" />
+    <Compile Include="MultiRegex.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Scenarios\GeneralConf\Common.cs" />
+    <Compile Include="Scenarios\GeneralConf\InterceptedHttpRequest.cs" />
+    <Compile Include="Scenarios\GeneralConf\LocalizedStrings.cs" />
+    <Compile Include="Scenarios\GeneralConf\TalkProcessor.cs" />
+    <Compile Include="Scenarios\GeneralConf\ConferenceDownloaderChromium.cs" />
+    <Compile Include="Scenarios\GeneralConf\ConferenceDownloadJob.cs" />
+    <Compile Include="Scenarios\GeneralConf\RequestInterceptingHttpProxy.cs" />
+    <Compile Include="Scenarios\LL.cs" />
+    <Compile Include="Scenarios\NinetyNineInvisible.cs" />
+    <Compile Include="Scenarios\Blindsprings.cs" />
+    <Compile Include="Scenarios\GeneralConf\Conference.cs" />
+    <Compile Include="Scenarios\GeneralConf\old\ConferenceDownloader.cs" />
+    <Compile Include="Scenarios\GeneralConf\ConferencePhase.cs" />
+    <Compile Include="Scenarios\GeneralConf\old\ConferenceProcessor.cs" />
+    <Compile Include="Scenarios\GeneralConf\ConferenceTalk.cs" />
+    <Compile Include="Scenarios\ImageCrawler.cs" />
+    <Compile Include="Scenarios\MangadexDownloader.cs" />
+    <Compile Include="Scenarios\MaxFunPodcasts.cs" />
+    <Compile Include="Scenarios\OneDrive.cs" />
+    <Compile Include="Scenarios\PodBean.cs" />
+    <Compile Include="Scenarios\PoppyOpossum.cs" />
+    <Compile Include="Scenarios\SmackJeevesDownloader.cs" />
+    <Compile Include="Scenarios\Tamberlane.cs" />
+    <Compile Include="Scenarios\TheChosen.cs" />
+    <Compile Include="Scenarios\ThingExplainer.cs" />
+    <Compile Include="Scenarios\TwoKinds.cs" />
+    <Compile Include="Scenarios\WebToonsDownloader.cs" />
+    <Compile Include="ScheduledWebCrawler.cs" />
+    <Compile Include="WebCrawler.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="runtimes\win-arm64\native\opus.dll" />
+    <Content Include="runtimes\win-x64\native\flac.dll" />
+    <Content Include="runtimes\win-x64\native\opus.dll" />
+    <Content Include="runtimes\win-x64\native\pocketfft.dll" />
+    <Content Include="runtimes\win-x64\native\speexdsp.dll" />
+    <Content Include="runtimes\win-x86\native\flac.dll" />
+    <Content Include="runtimes\win-x86\native\opus.dll" />
+    <Content Include="runtimes\win-x86\native\pocketfft.dll" />
+    <Content Include="runtimes\win-x86\native\speexdsp.dll" />
+    <None Include="App.config" />
+    <Content Include="chrome.zip">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="packages.config" />
+    <None Include="runtimes\android-arm64\native\libspeexdsp.so" />
+    <None Include="runtimes\android-arm\native\libspeexdsp.so" />
+    <None Include="runtimes\android-x64\native\libspeexdsp.so" />
+    <None Include="runtimes\android-x86\native\libspeexdsp.so" />
+    <None Include="runtimes\linux-arm64\native\libopus.so" />
+    <None Include="runtimes\linux-armv6\native\libFLAC.so" />
+    <None Include="runtimes\linux-armv6\native\libopus.so" />
+    <None Include="runtimes\linux-armv6\native\libspeexdsp.so" />
+    <None Include="runtimes\linux-arm\native\libopus.so" />
+    <None Include="runtimes\linux-x64\native\libFLAC.so" />
+    <None Include="runtimes\linux-x64\native\libopus.so" />
+    <None Include="runtimes\linux-x64\native\libspeexdsp.so" />
+    <None Include="runtimes\osx-arm64\native\libopus.dylib" />
+    <None Include="runtimes\osx-x64\native\libopus.dylib" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="packages\Selenium.WebDriver.4.19.0\build\Selenium.WebDriver.targets" Condition="Exists('packages\Selenium.WebDriver.4.19.0\build\Selenium.WebDriver.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Selenium.WebDriver.4.19.0\build\Selenium.WebDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Selenium.WebDriver.4.19.0\build\Selenium.WebDriver.targets'))" />
+    <Error Condition="!Exists('packages\Durandal.AI.Extensions.NativeAudio.22.0.4634\build\Durandal.AI.Extensions.NativeAudio.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Durandal.AI.Extensions.NativeAudio.22.0.4634\build\Durandal.AI.Extensions.NativeAudio.targets'))" />
+  </Target>
+  <Import Project="packages\Durandal.AI.Extensions.NativeAudio.22.0.4634\build\Durandal.AI.Extensions.NativeAudio.targets" Condition="Exists('packages\Durandal.AI.Extensions.NativeAudio.22.0.4634\build\Durandal.AI.Extensions.NativeAudio.targets')" />
+</Project>
