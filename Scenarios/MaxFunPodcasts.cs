@@ -154,12 +154,12 @@ namespace WebCrawler.Scenarios
                         await WebCrawler.DownloadFile(new Uri(downloadUri), targetMp3File, logger, webPage.Url.AbsoluteUri);
 
                         CommandLineParams encodeMetadata = new CommandLineParams();
-                        encodeMetadata.AddParameter("-metadata", $"title=\"{escapedEpisodeName}\"");
-                        encodeMetadata.AddParameter("-metadata", $"artist=\"{showDetails.MetadataArtist}\"");
-                        encodeMetadata.AddParameter("-metadata", $"album=\"{showDetails.MetadataAlbum}\"");
+                        encodeMetadata.AddParameter("-metadata", $"title=\"{CommandLine.EscapeConsoleString(escapedEpisodeName)}\"");
+                        encodeMetadata.AddParameter("-metadata", $"artist=\"{CommandLine.EscapeConsoleString(showDetails.MetadataArtist)}\"");
+                        encodeMetadata.AddParameter("-metadata", $"album=\"{CommandLine.EscapeConsoleString(showDetails.MetadataAlbum)}\"");
                         encodeMetadata.AddParameter("-metadata", string.Format("track=\"{0:D3}\"", episodeNum));
-                        encodeMetadata.AddParameter("-metadata", $"album_artist=\"{showDetails.MetadataAlbumArtist}\"");
-                        encodeMetadata.AddParameter("-metadata", $"genre=\"{showDetails.MetadataGenre}\"");
+                        encodeMetadata.AddParameter("-metadata", $"album_artist=\"{CommandLine.EscapeConsoleString(showDetails.MetadataAlbumArtist)}\"");
+                        encodeMetadata.AddParameter("-metadata", $"genre=\"{CommandLine.EscapeConsoleString(showDetails.MetadataGenre)}\"");
 
                         // Now queue up the mp3 -> opus conversion
                         workerThreadPool.EnqueueUserAsyncWorkItem(new BackgroundEncoderTaskClosure(

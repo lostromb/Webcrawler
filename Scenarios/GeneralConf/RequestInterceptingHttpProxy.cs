@@ -132,7 +132,7 @@ namespace WebCrawler.Scenarios.GeneralConf
                         // Pose as the target server using a Fiddler SSL cert to establish a TLS connection
                         string targetAuthority = GetWildcardedAuthorityName(client.ServerAddress.Authority);
                         X509Certificate2 fiddlerCert;
-                        if (!CertificateCache.Instance.TryGetCertificate(CertificateIdentifier.BySubjectName(targetAuthority), out fiddlerCert))
+                        if (!CertificateCache.Instance.TryGetCertificate(CertificateIdentifier.BySubjectName(targetAuthority), realTime, out fiddlerCert))
                         {
                             _logger.Log("No site certificate found for " + targetAuthority + "; run Fiddler first to generate cert", Durandal.Common.Logger.LogLevel.Err);
                             await context.WritePrimaryResponse(HttpResponse.ServerErrorResponse(), NullLogger.Singleton, cancelToken, realTime).ConfigureAwait(false);

@@ -79,7 +79,7 @@ namespace WebCrawler.InterProcess
         public static async Task<CommandLineResult> RunProcessAndCaptureOutput(string exePath, CommandLineParams args, ILogger logger)
         {
             string argsString = args.ToString();
-            logger.Log(LogLevel.Vrb, DataPrivacyClassification.SystemMetadata, "Running {0} {1}", exePath, argsString);
+            logger.LogFormat(LogLevel.Vrb, DataPrivacyClassification.SystemMetadata, "Running {0} {1}", exePath, argsString);
             ProcessStartInfo processInfo = new ProcessStartInfo
             {
                 FileName = exePath,

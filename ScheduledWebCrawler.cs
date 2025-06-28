@@ -16,6 +16,20 @@ namespace WebCrawler
     {
         public static async Task GetLatestMaxFunPodcasts()
         {
+            await ACastPodcasts.DownloadNewAcastPodcastEpisodes(
+                new ACastShowDetails()
+                {
+                    ShowUrlName = "im-from-the-internet-a-podcast-about-somethingawfulcom",
+                    InternalId = "63829b027823850011449d40",
+                    FileNameBase = "I'm From The Internet",
+                    MetadataAlbum = "I'm From The Internet",
+                    MetadataGenre = "Speech",
+                    MetadataArtist = "Jay Brandstetter & Winslow Dumaine",
+                    MetadataAlbumArtist = "I'm From The Internet"
+                },
+                new DirectoryInfo(@"S:\Audio\Podcasts\I'm From The Internet"),
+                0);
+
             await MaxFunPodcasts.DownloadNewMaxFunPodcastEpisodes(
                 new MaxFunShowDetails()
                 {

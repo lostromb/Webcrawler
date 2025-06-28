@@ -13,6 +13,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Durandal.Extensions.NativeAudio.Components;
+using Durandal.Common.ServiceMgmt;
 
 namespace WebCrawler.InterProcess
 {
@@ -117,11 +118,11 @@ namespace WebCrawler.InterProcess
                 const float silenceThresholdRms = 0.01f;
                 float scaleFactor = 1.0f;
 
-                using (IAudioSampleSource decoder = await FfmpegAudioSampleSource.Create(graph, "AudioDecoder", logger, new FileInfo(inputFilePath)))
+                using (IAudioSampleSource decoder = await FfmpegAudioSampleSource.Create(graph.AsWeakPointer(), "AudioDecoder", logger, new FileInfo(inputFilePath)))
                 {
                     AudioSampleFormat inputFormat = decoder.OutputFormat;
-                    using (NullAudioSampleTarget target = new NullAudioSampleTarget(graph, inputFormat, "AudioTarget"))
-                    using (PassiveVolumeMeter meter = new PassiveVolumeMeter(graph, inputFormat, "SlowMeter", TimeSpan.FromMilliseconds(3000)))
+                    using (NullAudioSampleTarget target = new NullAudioSampleTarget(graph.AsWeakPointer(), inputFormat, "AudioTarget"))
+                    using (PassiveVolumeMeter meter = new PassiveVolumeMeter(graph.AsWeakPointer(), inputFormat, "SlowMeter", TimeSpan.FromMilliseconds(3000)))
                     {
                         decoder.ConnectOutput(meter);
                         meter.ConnectOutput(target);
@@ -201,10 +202,10 @@ namespace WebCrawler.InterProcess
                 currentTime = TimeSpan.Zero;
 
                 using (FileStream waveOutStream = new FileStream(outputWavFilePath, FileMode.Create, FileAccess.ReadWrite))
-                using (IAudioSampleSource decoder = await FfmpegAudioSampleSource.Create(graph, "AudioDecoder", logger, new FileInfo(inputFilePath)))
-                using (AudioEncoder encoder = new RiffWaveEncoder(graph, decoder.OutputFormat, "WaveEncoder", logger))
-                using (NullAudioSampleTarget nullTarget = new NullAudioSampleTarget(graph, decoder.OutputFormat, "NullTarget"))
-                using (VolumeFilter volume = new VolumeFilter(graph, decoder.OutputFormat, "VolumeFilter"))
+                using (IAudioSampleSource decoder = await FfmpegAudioSampleSource.Create(graph.AsWeakPointer(), "AudioDecoder", logger, new FileInfo(inputFilePath)))
+                using (AudioEncoder encoder = new RiffWaveEncoder(graph.AsWeakPointer(), decoder.OutputFormat, "WaveEncoder", logger))
+                using (NullAudioSampleTarget nullTarget = new NullAudioSampleTarget(graph.AsWeakPointer(), decoder.OutputFormat, "NullTarget"))
+                using (VolumeFilter volume = new VolumeFilter(graph.AsWeakPointer(), decoder.OutputFormat, "VolumeFilter"))
                 {
                     await encoder.Initialize(waveOutStream, false, CancellationToken.None, DefaultRealTimeProvider.Singleton);
 
